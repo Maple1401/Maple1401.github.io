@@ -1,6 +1,9 @@
 # Linux 及 Git 代理配置
 
 
+![Linux-shell](https://linuxstory.org/wp-content/uploads/2018/08/xl-2017-linux-terminal-1.jpg
+)
+
 
 ## Linux 终端代理配置
 
@@ -17,9 +20,11 @@ alias poff='unset http_proxy;unset https_proxy'
 alias pon='export http_proxy=$proxyurl; export https_proxy=$proxyurl'
 ```
 
-## 终端代理
+## Git 代理配置
 
-### HTTP 代理
+### Git HTTP 代理
+
+适用于仅 pull  场景
 
 1. 临时
 
@@ -58,8 +63,9 @@ git config --global -l
 git config --global --unset http.proxy
 ```
 
-## SSH 代理
+## Git SSH 代理
 
+适用于 pull/post 场景
 
 ```bash
 # vim ~/.ssh/config
@@ -70,7 +76,7 @@ Host github.com bitbucket.org
 
 ### 通过 https 端口使用 SSH
 
-由于部分代理限制了 22端口，无法直接使用 ssh 模式 问题详见 [git无法使用代理连接ssh](https://github.com/yichengchen/clashX/discussions/942)
+由于部分代理限制了 22 端口，无法直接使用 ssh 模式 问题详见 [git无法使用代理连接ssh](https://github.com/yichengchen/clashX/discussions/942)
 
 可将如下配置添加至 ~/.ssh/config 中
 

@@ -6,11 +6,11 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yifeng63@gmail.com (Maple)</managingEditor>
             <webMaster>yifeng63@gmail.com (Maple)</webMaster><lastBuildDate>Wed, 02 Nov 2022 16:04:26 &#43;0800</lastBuildDate><atom:link href="https://maple1401.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Linux 及 Git 代理配置</title>
-    <link>https://maple1401.github.io/01-fiest/</link>
+    <link>https://maple1401.github.io/01-linux-proxy/</link>
     <pubDate>Wed, 02 Nov 2022 16:04:26 &#43;0800</pubDate>
     <author>Maple</author>
-    <guid>https://maple1401.github.io/01-fiest/</guid>
-    <description><![CDATA[Linux 终端代理配置 将如下配置添加至 ~/.bash_profile 后, source ~/.bash_profile 生效. 1 2 3 4 5 6 7 8 http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890 no_proxy=localhost,127.0.0.1,localaddress,.localdomain.com,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,17.0.0.0/8,.local,169.254.0.0/16,224.0.0.0/4,240.0.0.0/4 # 如果代理失效的话直接运行 poff 即可断开 proxy alias poff=&#39;unset http_proxy;unset https_proxy&#39; # 快捷方式打开 alias pon=&#39;export http_proxy=$proxyurl; export https_proxy=$proxyurl&#39; 终]]></description>
+    <guid>https://maple1401.github.io/01-linux-proxy/</guid>
+    <description><![CDATA[Linux 终端代理配置 将如下配置添加至 ~/.bash_profile 后, source ~/.bash_profile 生效. 1 2 3 4 5 6 7 8 http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890 no_proxy=localhost,127.0.0.1,localaddress,.localdomain.com,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,17.0.0.0/8,.local,169.254.0.0/16,224.0.0.0/4,240.0.0.0/4 # 如果代理失效的话直接运行 poff 即可断开 proxy alias poff=&#39;unset http_proxy;unset https_proxy&#39; # 快捷方式打开 alias pon=&#39;export http_proxy=$proxyurl; export https_proxy=$proxyurl&#39; Git]]></description>
 </item>
 <item>
     <title>Hello World</title>

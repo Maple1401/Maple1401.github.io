@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Linux 及 Git 代理配置 - Maple&#39;s Blog</title><meta name="Description" content="个人博客，记录生活"><meta property="og:title" content="Linux 及 Git 代理配置" />
-<meta property="og:description" content="Linux 终端代理配置 将如下配置添加至 ~/.bash_profile 后, source ~/.bash_profile 生效. 1 2 3 4 5 6 7 8 http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890 no_proxy=localhost,127.0.0.1,localaddress,.localdomain.com,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,17.0.0.0/8,.local,169.254.0.0/16,224.0.0.0/4,240.0.0.0/4 # 如果代理失效的话直接运行 poff 即可断开 proxy alias poff=&#39;unset http_proxy;unset https_proxy&#39; # 快捷方式打开 alias pon=&#39;export http_proxy=$proxyurl; export https_proxy=$proxyurl&#39; 终" />
+<meta property="og:description" content="Linux 终端代理配置 将如下配置添加至 ~/.bash_profile 后, source ~/.bash_profile 生效. 1 2 3 4 5 6 7 8 http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890 no_proxy=localhost,127.0.0.1,localaddress,.localdomain.com,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,17.0.0.0/8,.local,169.254.0.0/16,224.0.0.0/4,240.0.0.0/4 # 如果代理失效的话直接运行 poff 即可断开 proxy alias poff=&#39;unset http_proxy;unset https_proxy&#39; # 快捷方式打开 alias pon=&#39;export http_proxy=$proxyurl; export https_proxy=$proxyurl&#39; Git" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://maple1401.github.io/01-fiest/" /><meta property="og:image" content="https://maple1401.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://maple1401.github.io/01-linux-proxy/" /><meta property="og:image" content="https://maple1401.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-11-02T16:04:26+08:00" />
 <meta property="article:modified_time" content="2022-11-02T21:53:27+08:00" /><meta property="og:site_name" content="Maple&#39;s Blog" />
 
@@ -15,11 +15,11 @@
 <meta name="twitter:image" content="https://maple1401.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Linux 及 Git 代理配置"/>
-<meta name="twitter:description" content="Linux 终端代理配置 将如下配置添加至 ~/.bash_profile 后, source ~/.bash_profile 生效. 1 2 3 4 5 6 7 8 http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890 no_proxy=localhost,127.0.0.1,localaddress,.localdomain.com,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,17.0.0.0/8,.local,169.254.0.0/16,224.0.0.0/4,240.0.0.0/4 # 如果代理失效的话直接运行 poff 即可断开 proxy alias poff=&#39;unset http_proxy;unset https_proxy&#39; # 快捷方式打开 alias pon=&#39;export http_proxy=$proxyurl; export https_proxy=$proxyurl&#39; 终"/>
+<meta name="twitter:description" content="Linux 终端代理配置 将如下配置添加至 ~/.bash_profile 后, source ~/.bash_profile 生效. 1 2 3 4 5 6 7 8 http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890 no_proxy=localhost,127.0.0.1,localaddress,.localdomain.com,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,17.0.0.0/8,.local,169.254.0.0/16,224.0.0.0/4,240.0.0.0/4 # 如果代理失效的话直接运行 poff 即可断开 proxy alias poff=&#39;unset http_proxy;unset https_proxy&#39; # 快捷方式打开 alias pon=&#39;export http_proxy=$proxyurl; export https_proxy=$proxyurl&#39; Git"/>
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://maple1401.github.io/01-fiest/" /><link rel="prev" href="https://maple1401.github.io/hello-world/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://maple1401.github.io/01-linux-proxy/" /><link rel="prev" href="https://maple1401.github.io/hello-world/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -29,9 +29,9 @@
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/maple1401.github.io\/01-fiest\/"
-        },"genre": "posts","wordcount":  343 ,
-        "url": "https:\/\/maple1401.github.io\/01-fiest\/","datePublished": "2022-11-02T16:04:26+08:00","dateModified": "2022-11-02T21:53:27+08:00","publisher": {
+            "@id": "https:\/\/maple1401.github.io\/01-linux-proxy\/"
+        },"genre": "posts","keywords": "Linux","wordcount":  358 ,
+        "url": "https:\/\/maple1401.github.io\/01-linux-proxy\/","datePublished": "2022-11-02T16:04:26+08:00","dateModified": "2022-11-02T21:53:27+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,8 +103,8 @@
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux 及 Git 代理配置</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://maple1401.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Maple</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-02">2022-11-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;343 words&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="https://maple1401.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Maple</a></span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-02">2022-11-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;358 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
@@ -114,12 +114,12 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#linux-终端代理配置">Linux 终端代理配置</a></li>
-    <li><a href="#终端代理">终端代理</a>
+    <li><a href="#git-代理配置">Git 代理配置</a>
       <ul>
-        <li><a href="#http-代理">HTTP 代理</a></li>
+        <li><a href="#git-http-代理">Git HTTP 代理</a></li>
       </ul>
     </li>
-    <li><a href="#ssh-代理">SSH 代理</a>
+    <li><a href="#git-ssh-代理">Git SSH 代理</a>
       <ul>
         <li><a href="#通过-https-端口使用-ssh">通过 https 端口使用 SSH</a></li>
       </ul>
@@ -127,7 +127,15 @@
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="linux-终端代理配置">Linux 终端代理配置</h2>
+            </div><div class="content" id="content"><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://linuxstory.org/wp-content/uploads/2018/08/xl-2017-linux-terminal-1.jpg"
+        data-srcset="https://linuxstory.org/wp-content/uploads/2018/08/xl-2017-linux-terminal-1.jpg, https://linuxstory.org/wp-content/uploads/2018/08/xl-2017-linux-terminal-1.jpg 1.5x, https://linuxstory.org/wp-content/uploads/2018/08/xl-2017-linux-terminal-1.jpg 2x"
+        data-sizes="auto"
+        alt="https://linuxstory.org/wp-content/uploads/2018/08/xl-2017-linux-terminal-1.jpg"
+        title="Linux-shell" /></p>
+<h2 id="linux-终端代理配置">Linux 终端代理配置</h2>
 <p>将如下配置添加至 ~/.bash_profile 后, source ~/.bash_profile 生效.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -151,8 +159,9 @@
 </span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">pon</span><span class="o">=</span><span class="s1">&#39;export http_proxy=$proxyurl; export https_proxy=$proxyurl&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="终端代理">终端代理</h2>
-<h3 id="http-代理">HTTP 代理</h3>
+</div><h2 id="git-代理配置">Git 代理配置</h2>
+<h3 id="git-http-代理">Git HTTP 代理</h3>
+<p>适用于仅 pull  场景</p>
 <ol>
 <li>临时</li>
 </ol>
@@ -221,7 +230,8 @@
 </span></span><span class="line"><span class="cl">git config --global --unset http.proxy
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="ssh-代理">SSH 代理</h2>
+</div><h2 id="git-ssh-代理">Git SSH 代理</h2>
+<p>适用于 pull/post 场景</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -235,7 +245,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="通过-https-端口使用-ssh">通过 https 端口使用 SSH</h3>
-<p>由于部分代理限制了 22端口，无法直接使用 ssh 模式 问题详见 <a href="https://github.com/yichengchen/clashX/discussions/942" target="_blank" rel="noopener noreffer ">git无法使用代理连接ssh</a></p>
+<p>由于部分代理限制了 22 端口，无法直接使用 ssh 模式 问题详见 <a href="https://github.com/yichengchen/clashX/discussions/942" target="_blank" rel="noopener noreffer ">git无法使用代理连接ssh</a></p>
 <p>可将如下配置添加至 ~/.ssh/config 中</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -269,16 +279,16 @@
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/01-fiest/index.md" target="_blank">Read Markdown</a>
+                            <a class="link-to-markdown" href="/01-linux-proxy/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://maple1401.github.io/01-fiest/" data-title="Linux 及 Git 代理配置"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://maple1401.github.io/01-fiest/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://maple1401.github.io/01-fiest/" data-title="Linux 及 Git 代理配置"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://maple1401.github.io/01-fiest/" data-title="Linux 及 Git 代理配置"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://maple1401.github.io/01-fiest/" data-title="Linux 及 Git 代理配置"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://maple1401.github.io/01-linux-proxy/" data-title="Linux 及 Git 代理配置" data-hashtags="Linux"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://maple1401.github.io/01-linux-proxy/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://maple1401.github.io/01-linux-proxy/" data-title="Linux 及 Git 代理配置"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://maple1401.github.io/01-linux-proxy/" data-title="Linux 及 Git 代理配置"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://maple1401.github.io/01-linux-proxy/" data-title="Linux 及 Git 代理配置"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
