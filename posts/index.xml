@@ -4,7 +4,15 @@
         <link>https://maple1401.github.io/posts/</link>
         <description>All Posts | Maple&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yifeng63@gmail.com (Maple)</managingEditor>
-            <webMaster>yifeng63@gmail.com (Maple)</webMaster><lastBuildDate>Tue, 01 Nov 2022 16:04:26 &#43;0800</lastBuildDate><atom:link href="https://maple1401.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yifeng63@gmail.com (Maple)</webMaster><lastBuildDate>Wed, 02 Nov 2022 16:04:26 &#43;0800</lastBuildDate><atom:link href="https://maple1401.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>测试</title>
+    <link>https://maple1401.github.io/01-fiest/</link>
+    <pubDate>Wed, 02 Nov 2022 16:04:26 &#43;0800</pubDate>
+    <author>Maple</author>
+    <guid>https://maple1401.github.io/01-fiest/</guid>
+    <description><![CDATA[随笔 这是一篇从 iPad 编辑的文章]]></description>
+</item>
+<item>
     <title>Hello World</title>
     <link>https://maple1401.github.io/hello-world/</link>
     <pubDate>Tue, 01 Nov 2022 16:04:26 &#43;0800</pubDate>
