@@ -6,5 +6,4 @@
 ## Hello
 
 
-balabalalasdasd
-
+刚搭建好，你是第一个访客。 Hi~
