@@ -1,9 +1,7 @@
 # Linux 及 Git 代理配置
 
 
-![Linux-shell](https://linuxstory.org/wp-content/uploads/2018/08/xl-2017-linux-terminal-1.jpg
-)
-
+![Linux-shell](https://linuxstory.org/wp-content/uploads/2018/08/xl-2017-linux-terminal-1.jpg)
 
 ## Linux 终端代理配置
 
