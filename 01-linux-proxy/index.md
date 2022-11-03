@@ -1,7 +1,13 @@
 # Linux 及 Git 代理配置
 
 
+Linux 终端代理及 Git Http & SSH 代理最佳实践
+
+<!--more-->
+
 ![Linux-shell](https://linuxstory.org/wp-content/uploads/2018/08/xl-2017-linux-terminal-1.jpg)
+
+
 
 ## Linux 终端代理配置
 
