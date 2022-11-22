@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>ESXi 更换证书 - Maple&#39;s Blog</title><meta name="Description" content="个人博客，记录生活"><meta property="og:title" content="ESXi 更换证书" />
-<meta property="og:description" content="前端更新失败 从前端导入证书失败，固使用 SSH 到宿主上替换证书文件。 通过 SSH 登录宿主更新 ssh 使用 root 用户登录后 进入 /etc/vmware/ssl 目录，rui.crt、rui.key" />
+<meta property="og:description" content="ESXi 虚拟化环境的 HTTPS 证书到期，前端更换失败，通过 SSH 登录宿主，替换证书文件的方式更新 HTTPS 证书。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://maple1401.github.io/4-esxi%E6%9B%B4%E6%8D%A2%E8%AF%81%E4%B9%A6/" /><meta property="og:image" content="https://maple1401.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-11-18T11:59:03+08:00" />
@@ -15,7 +15,7 @@
 <meta name="twitter:image" content="https://maple1401.github.io/logo.png"/>
 
 <meta name="twitter:title" content="ESXi 更换证书"/>
-<meta name="twitter:description" content="前端更新失败 从前端导入证书失败，固使用 SSH 到宿主上替换证书文件。 通过 SSH 登录宿主更新 ssh 使用 root 用户登录后 进入 /etc/vmware/ssl 目录，rui.crt、rui.key"/>
+<meta name="twitter:description" content="ESXi 虚拟化环境的 HTTPS 证书到期，前端更换失败，通过 SSH 登录宿主，替换证书文件的方式更新 HTTPS 证书。"/>
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/maple1401.github.io\/4-esxi%E6%9B%B4%E6%8D%A2%E8%AF%81%E4%B9%A6\/"
-        },"genre": "posts","wordcount":  191 ,
+        },"genre": "posts","wordcount":  234 ,
         "url": "https:\/\/maple1401.github.io\/4-esxi%E6%9B%B4%E6%8D%A2%E8%AF%81%E4%B9%A6\/","datePublished": "2022-11-18T11:59:03+08:00","dateModified": "2022-11-18T11:59:03+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">ESXi 更换证书</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://maple1401.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Maple</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-18">2022-11-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;191 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-18">2022-11-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;234 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -118,7 +118,8 @@
     <li><a href="#完成">完成</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="前端更新失败">前端更新失败</h2>
+            </div><div class="content" id="content"><p>ESXi 虚拟化环境的 HTTPS 证书到期，前端更换失败，通过 SSH 登录宿主，替换证书文件的方式更新 HTTPS 证书。</p>
+<h2 id="前端更新失败">前端更新失败</h2>
 <p>从前端导入证书失败，固使用 SSH 到宿主上替换证书文件。</p>
 <p><img
         class="lazyload"
@@ -178,8 +179,7 @@
         alt="../images/post_images/Snipaste_2022-11-22_12-55-45.png"
         title="检查证书" /></p>
 <p><strong>关闭 SSH</strong></p>
-<p>为保证安全，关闭 SSH 登录。</p>
-</div><div class="post-footer" id="post-footer">
+<p>为保证安全，关闭 SSH 登录。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
