@@ -6,7 +6,7 @@
 
 从前端导入证书失败，固使用 SSH 到宿主上替换证书文件。
 
-![导入失败](./image/Snipaste_2022-11-22_12-00-06.png)
+![导入失败](../images/post_images/Snipaste_2022-11-22_12-00-06.png)
 
 
 ## 通过 SSH 登录宿主更新
@@ -17,7 +17,7 @@ ssh 使用 root 用户登录后
 
 **开启 SSH 登录**
 
-![开启 SSH 登录](./image/Snipaste_2022-11-22_12-02-48.png)
+![开启 SSH 登录](../images/post_images/Snipaste_2022-11-22_12-02-48.png)
 
 
 **备份原证书**
@@ -42,7 +42,7 @@ vi 编辑，%d 清空，复制申请好的证书 .pem 到 rui.crt， .key 到 ru
 
 **登录检查证书**
 
-![检查证书](./image/Snipaste_2022-11-22_12-55-45.png)
+![检查证书](../images/post_images/Snipaste_2022-11-22_12-55-45.png)
 
 
 **关闭 SSH**
