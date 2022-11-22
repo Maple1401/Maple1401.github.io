@@ -4,9 +4,17 @@
         <link>https://maple1401.github.io/</link>
         <description>个人博客，记录生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yifeng63@gmail.com (Maple)</managingEditor>
-            <webMaster>yifeng63@gmail.com (Maple)</webMaster><lastBuildDate>Wed, 02 Nov 2022 16:04:26 &#43;0800</lastBuildDate>
+            <webMaster>yifeng63@gmail.com (Maple)</webMaster><lastBuildDate>Fri, 18 Nov 2022 11:59:03 &#43;0800</lastBuildDate>
             <atom:link href="https://maple1401.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>ESXi 更换证书</title>
+    <link>https://maple1401.github.io/4-esxi%E6%9B%B4%E6%8D%A2%E8%AF%81%E4%B9%A6/</link>
+    <pubDate>Fri, 18 Nov 2022 11:59:03 &#43;0800</pubDate>
+    <author>Maple</author>
+    <guid>https://maple1401.github.io/4-esxi%E6%9B%B4%E6%8D%A2%E8%AF%81%E4%B9%A6/</guid>
+    <description><![CDATA[前端更新失败 从前端导入证书失败，固使用 SSH 到宿主上替换证书文件。 通过 SSH 登录宿主更新 ssh 使用 root 用户登录后 进入 /etc/vmware/ssl 目录，rui.crt、rui.key]]></description>
+</item>
+<item>
     <title>Linux 及 Git 代理配置</title>
     <link>https://maple1401.github.io/01-linux-proxy/</link>
     <pubDate>Wed, 02 Nov 2022 16:04:26 &#43;0800</pubDate>
