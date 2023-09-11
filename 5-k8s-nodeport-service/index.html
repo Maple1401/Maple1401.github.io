@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/maple1401.github.io\/5-k8s-nodeport-service\/"
-        },"genre": "posts","wordcount":  661 ,
+        },"genre": "posts","wordcount":  705 ,
         "url": "https:\/\/maple1401.github.io\/5-k8s-nodeport-service\/","datePublished": "2023-09-11T11:59:03+08:00","dateModified": "2023-09-11T13:03:25+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">k8s NodePort 端口监听问题</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://maple1401.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Maple</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-11">2023-09-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;661 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-11">2023-09-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;705 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -147,10 +147,20 @@
 <p>kube-proxy 将不再在节点上保持 Service NodePort 端口处于打开状态。所以用 netstat or ss 将看不到监听的 nodePort 端口。</p>
 <p>可以通过 ipvsadm -Ln 来查看转发规则。</p>
 <p>但仍建议你不要在 kube-proxy 使用的节点端口范围内（默认30000-32768），监听任何端口。</p>
+<p>因为 ipvs 在内核态就根据转发规则把流量转发给后端 Pod 了，你在 node 上再监听的端口实际收不到数据。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../images/post_images/4e8a6a1c080746eba585a254a95f40fc.png"
+        data-srcset="../images/post_images/4e8a6a1c080746eba585a254a95f40fc.png, ../images/post_images/4e8a6a1c080746eba585a254a95f40fc.png 1.5x, ../images/post_images/4e8a6a1c080746eba585a254a95f40fc.png 2x"
+        data-sizes="auto"
+        alt="../images/post_images/4e8a6a1c080746eba585a254a95f40fc.png"
+        title="ipvs" /></p>
 <h2 id="从哪个版本开始修改的">从哪个版本开始修改的</h2>
 <p>根据 commit 提交的时间（2022年3月），和我的测试，能确认是2022年5月份之后的版本，已全部删除 kube-proxy 监听 NodePort 的代码。</p>
 <p>测试已删除代码的版本：</p>
 <ul>
+<li>1.20.</li>
 <li>1.21.13 及之后小版本</li>
 <li>1.22.10 及之后小版本</li>
 <li>1.23.7 及之后小版本</li>
