@@ -32,13 +32,13 @@
 
 ## 删除后有什么影响
 
-kube-proxy 将不再在节点上保持 Service NodePort 端口处于打开状态。所以用 netstat or ss 将看不到监听的 nodePort 端口。
-
-可以通过 ipvsadm -Ln 来查看转发规则。
+kube-proxy 将不再在节点上保持 Service NodePort 端口处于打开状态。所以用 netstat or ss 将看不到监听的 nodePort 端口，可以通过 ipvsadm -Ln 来查看转发规则。
 
 但仍建议你不要在 kube-proxy 使用的节点端口范围内（默认30000-32768），监听任何端口。
 
 因为 ipvs 在内核态就根据转发规则把流量转发给后端 Pod 了，你在 node 上再监听的端口实际收不到数据。
+
+同时，如果你的应用使用了 HostNetwork，要小心不要使用 nodePort 范围的端口，比如默认的 30000-32767，不然如果 nodePort 随机分配到你的 HostNetwork 端口，流量就直接被 ipvs 转发了。
 
 ![ipvs](../images/post_images/4e8a6a1c080746eba585a254a95f40fc.png)
 

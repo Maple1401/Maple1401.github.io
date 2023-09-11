@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/maple1401.github.io\/5-k8s-nodeport-service\/"
-        },"genre": "posts","wordcount":  705 ,
+        },"genre": "posts","wordcount":  787 ,
         "url": "https:\/\/maple1401.github.io\/5-k8s-nodeport-service\/","datePublished": "2023-09-11T11:59:03+08:00","dateModified": "2023-09-11T13:03:25+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">k8s NodePort 端口监听问题</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://maple1401.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Maple</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-11">2023-09-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;705 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-11">2023-09-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;787 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -144,10 +144,10 @@
         alt="../images/post_images/WX20230911-124000.png"
         title="删除代码" /></p>
 <h2 id="删除后有什么影响">删除后有什么影响</h2>
-<p>kube-proxy 将不再在节点上保持 Service NodePort 端口处于打开状态。所以用 netstat or ss 将看不到监听的 nodePort 端口。</p>
-<p>可以通过 ipvsadm -Ln 来查看转发规则。</p>
+<p>kube-proxy 将不再在节点上保持 Service NodePort 端口处于打开状态。所以用 netstat or ss 将看不到监听的 nodePort 端口，可以通过 ipvsadm -Ln 来查看转发规则。</p>
 <p>但仍建议你不要在 kube-proxy 使用的节点端口范围内（默认30000-32768），监听任何端口。</p>
 <p>因为 ipvs 在内核态就根据转发规则把流量转发给后端 Pod 了，你在 node 上再监听的端口实际收不到数据。</p>
+<p>同时，如果你的应用使用了 HostNetwork，要小心不要使用 nodePort 范围的端口，比如默认的 30000-32767，不然如果 nodePort 随机分配到你的 HostNetwork 端口，流量就直接被 ipvs 转发了。</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
