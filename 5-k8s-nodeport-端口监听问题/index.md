@@ -6,7 +6,10 @@
 
 ## 背景
 
-根据原来学习的内容， nodePort 类型的 Service ，会在本机监听对应的端口，可以使用 netstat -antlp 查询端口监听的状态。 但升级集群版本后，用 ss 看不到监听的端口了，以为是哪里出了问题，查了半天资料，终于搞清楚了，是 2022 年 3 月的某个 commit ，删除了 kube-proxy 监听 nodePort 的功能。所以之后发布的版本，用 netstat 就看不到 nodePort 端口了
+根据原来学习的内容， nodePort 类型的 Service ，会在本机监听对应的端口，可以使用 netstat -antlp 查询端口监听的状态。
+但升级集群版本后，用 ss 看不到监听的端口了，以为是哪里出了问题，
+查了半天资料，终于搞清楚了，是 2022 年 3 月的某个 commit ，删除了 kube-proxy 监听 nodePort 的功能
+所以之后发布的版本，用 netstat 就看不到 nodePort 端口了
 
 
 ## 为什么删除
@@ -50,6 +53,6 @@ kube-proxy 将不再在节点上保持 Service NodePort 端口处于打开状态
 - 1.25.0 及之后版本
 - 以及后续所有新版本
 
-## 引用
+## 参考
 
-[ ] https://github.com/kubernetes/kubernetes/pull/108496
+-  https://github.com/kubernetes/kubernetes/pull/108496

@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/maple1401.github.io\/5-k8s-nodeport-%E7%AB%AF%E5%8F%A3%E7%9B%91%E5%90%AC%E9%97%AE%E9%A2%98\/"
-        },"genre": "posts","wordcount":  659 ,
+        },"genre": "posts","wordcount":  656 ,
         "url": "https:\/\/maple1401.github.io\/5-k8s-nodeport-%E7%AB%AF%E5%8F%A3%E7%9B%91%E5%90%AC%E9%97%AE%E9%A2%98\/","datePublished": "2023-09-11T11:59:03+08:00","dateModified": "2023-09-11T11:59:03+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">k8s NodePort 端口监听问题</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://maple1401.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Maple</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-11">2023-09-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;659 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-11">2023-09-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;656 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -116,12 +116,15 @@
     <li><a href="#为什么删除">为什么删除</a></li>
     <li><a href="#删除后有什么影响">删除后有什么影响</a></li>
     <li><a href="#从哪个版本开始修改的">从哪个版本开始修改的</a></li>
-    <li><a href="#引用">引用</a></li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>升级 K8s 集群版本后，发现 netstat 看不到 nodePort Service 监听的端口了，随时排查一番，发现是某个版本中取消了 kube-proxy 监听 nodePort 的功能。</p>
 <h2 id="背景">背景</h2>
-<p>根据原来学习的内容， nodePort 类型的 Service ，会在本机监听对应的端口，可以使用 netstat -antlp 查询端口监听的状态。 但升级集群版本后，用 ss 看不到监听的端口了，以为是哪里出了问题，查了半天资料，终于搞清楚了，是 2022 年 3 月的某个 commit ，删除了 kube-proxy 监听 nodePort 的功能。所以之后发布的版本，用 netstat 就看不到 nodePort 端口了</p>
+<p>根据原来学习的内容， nodePort 类型的 Service ，会在本机监听对应的端口，可以使用 netstat -antlp 查询端口监听的状态。
+但升级集群版本后，用 ss 看不到监听的端口了，以为是哪里出了问题，
+查了半天资料，终于搞清楚了，是 2022 年 3 月的某个 commit ，删除了 kube-proxy 监听 nodePort 的功能
+所以之后发布的版本，用 netstat 就看不到 nodePort 端口了</p>
 <h2 id="为什么删除">为什么删除</h2>
 <p>根据 <a href="https://github.com/kubernetes/kubernetes/pull/108496" target="_blank" rel="noopener noreffer ">PR</a> 中的描述</p>
 <p>最早实现让 kube-proxy 监听 nodePort 端口，是想阻止用户在节点上监听 nodePort ，以免冲突，以及会带来调试问题。</p>
@@ -155,8 +158,10 @@
 <li>1.25.0 及之后版本</li>
 <li>以及后续所有新版本</li>
 </ul>
-<h2 id="引用">引用</h2>
-<p>[ ] <a href="https://github.com/kubernetes/kubernetes/pull/108496" target="_blank" rel="noopener noreffer ">https://github.com/kubernetes/kubernetes/pull/108496</a></p></div><div class="post-footer" id="post-footer">
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://github.com/kubernetes/kubernetes/pull/108496" target="_blank" rel="noopener noreffer ">https://github.com/kubernetes/kubernetes/pull/108496</a></li>
+</ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
