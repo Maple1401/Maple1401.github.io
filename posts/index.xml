@@ -4,7 +4,15 @@
         <link>https://maple1401.github.io/posts/</link>
         <description>All Posts | Maple&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yifeng63@gmail.com (Maple)</managingEditor>
-            <webMaster>yifeng63@gmail.com (Maple)</webMaster><lastBuildDate>Fri, 18 Nov 2022 11:59:03 &#43;0800</lastBuildDate><atom:link href="https://maple1401.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yifeng63@gmail.com (Maple)</webMaster><lastBuildDate>Mon, 11 Sep 2023 11:59:03 &#43;0800</lastBuildDate><atom:link href="https://maple1401.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>k8s NodePort 端口监听问题</title>
+    <link>https://maple1401.github.io/5-k8s-nodeport-%E7%AB%AF%E5%8F%A3%E7%9B%91%E5%90%AC%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Mon, 11 Sep 2023 11:59:03 &#43;0800</pubDate>
+    <author>Maple</author>
+    <guid>https://maple1401.github.io/5-k8s-nodeport-%E7%AB%AF%E5%8F%A3%E7%9B%91%E5%90%AC%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[<p>升级 K8s 集群版本后，发现 netstat 看不到 nodePort Service 监听的端口了，随时排查一番，发现是某个版本中取消了 kube-proxy 监听 nodePort 的功能。</p>]]></description>
+</item>
+<item>
     <title>ESXi 更换证书</title>
     <link>https://maple1401.github.io/4-esxi%E6%9B%B4%E6%8D%A2%E8%AF%81%E4%B9%A6/</link>
     <pubDate>Fri, 18 Nov 2022 11:59:03 &#43;0800</pubDate>
