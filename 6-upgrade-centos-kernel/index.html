@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>ESXi 更换证书 - Maple&#39;s Blog</title><meta name="Description" content="个人博客，记录生活"><meta property="og:url" content="https://maple1401.github.io/4-change-esxi-cert/">
+        <title>centos 内核升级 - Maple&#39;s Blog</title><meta name="Description" content="个人博客，记录生活"><meta property="og:url" content="https://maple1401.github.io/6-upgrade-centos-kernel/">
   <meta property="og:site_name" content="Maple&#39;s Blog">
-  <meta property="og:title" content="ESXi 更换证书">
-  <meta property="og:description" content="ESXi 虚拟化环境的 HTTPS 证书到期，前端更换失败，通过 SSH 登录宿主，替换证书文件的方式更新 HTTPS 证书。
+  <meta property="og:title" content="centos 内核升级">
+  <meta property="og:description" content="在线及离线升级 centos7 内核方法
 ">
   <meta property="og:locale" content="zh-CN">
   <meta property="og:type" content="article">
   <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2022-11-18T11:59:03+08:00">
-    <meta property="article:modified_time" content="2023-09-11T13:03:25+08:00">
+    <meta property="article:published_time" content="2023-09-25T11:59:03+08:00">
+    <meta property="article:modified_time" content="2023-09-25T11:07:11+08:00">
     <meta property="og:image" content="https://maple1401.github.io/logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://maple1401.github.io/logo.png"><meta name="twitter:title" content="ESXi 更换证书">
-<meta name="twitter:description" content="ESXi 虚拟化环境的 HTTPS 证书到期，前端更换失败，通过 SSH 登录宿主，替换证书文件的方式更新 HTTPS 证书。">
+<meta name="twitter:image" content="https://maple1401.github.io/logo.png"><meta name="twitter:title" content="centos 内核升级">
+<meta name="twitter:description" content="在线及离线升级 centos7 内核方法">
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://maple1401.github.io/4-change-esxi-cert/" /><link rel="prev" href="https://maple1401.github.io/01-linux-proxy/" /><link rel="next" href="https://maple1401.github.io/5-k8s-nodeport-service/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://maple1401.github.io/6-upgrade-centos-kernel/" /><link rel="prev" href="https://maple1401.github.io/5-k8s-nodeport-service/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "ESXi 更换证书",
+        "headline": "centos 内核升级",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/maple1401.github.io\/4-change-esxi-cert\/"
-        },"genre": "posts","wordcount":  234 ,
-        "url": "https:\/\/maple1401.github.io\/4-change-esxi-cert\/","datePublished": "2022-11-18T11:59:03+08:00","dateModified": "2023-09-11T13:03:25+08:00","publisher": {
+            "@id": "https:\/\/maple1401.github.io\/6-upgrade-centos-kernel\/"
+        },"genre": "posts","wordcount":  784 ,
+        "url": "https:\/\/maple1401.github.io\/6-upgrade-centos-kernel\/","datePublished": "2023-09-25T11:59:03+08:00","dateModified": "2023-09-25T11:07:11+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -104,10 +104,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content always-active" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">ESXi 更换证书</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">centos 内核升级</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://maple1401.github.io/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Maple</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-18">2022-11-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;234 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-25">2023-09-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;784 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -115,47 +115,64 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#前端更新失败">前端更新失败</a></li>
-    <li><a href="#通过-ssh-登录宿主更新">通过 SSH 登录宿主更新</a></li>
-    <li><a href="#完成">完成</a></li>
+    <li><a href="#在线升级流程">在线升级流程</a></li>
+    <li><a href="#为什么有的教程让修改-grub-文件">为什么有的教程让修改 grub 文件</a></li>
+    <li><a href="#如何离线安装">如何离线安装</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>ESXi 虚拟化环境的 HTTPS 证书到期，前端更换失败，通过 SSH 登录宿主，替换证书文件的方式更新 HTTPS 证书。</p>
-<h2 id="前端更新失败">前端更新失败</h2>
-<p>从前端导入证书失败，固使用 SSH 到宿主上替换证书文件。</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="../images/post_images/Snipaste_2022-11-22_12-00-06.png"
-        data-srcset="../images/post_images/Snipaste_2022-11-22_12-00-06.png, ../images/post_images/Snipaste_2022-11-22_12-00-06.png 1.5x, ../images/post_images/Snipaste_2022-11-22_12-00-06.png 2x"
-        data-sizes="auto"
-        alt="../images/post_images/Snipaste_2022-11-22_12-00-06.png"
-        title="导入失败" /></p>
-<h2 id="通过-ssh-登录宿主更新">通过 SSH 登录宿主更新</h2>
-<p>ssh 使用 root 用户登录后</p>
-<p>进入 /etc/vmware/ssl 目录，rui.crt、rui.key，是默认的证书文件。</p>
-<p><strong>开启 SSH 登录</strong></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="../images/post_images/Snipaste_2022-11-22_12-02-48.png"
-        data-srcset="../images/post_images/Snipaste_2022-11-22_12-02-48.png, ../images/post_images/Snipaste_2022-11-22_12-02-48.png 1.5x, ../images/post_images/Snipaste_2022-11-22_12-02-48.png 2x"
-        data-sizes="auto"
-        alt="../images/post_images/Snipaste_2022-11-22_12-02-48.png"
-        title="开启 SSH 登录" /></p>
-<p><strong>备份原证书</strong></p>
+            </div><div class="content" id="content"><p>在线及离线升级 centos7 内核方法</p>
+<h2 id="在线升级流程">在线升级流程</h2>
+<ol>
+<li>检查当前的内核版本:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">uname -r
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>安装 ELRepo 仓库,这是一个提供更新内核的第三方仓库,就可以直接使用 yum 更新内核:</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp rui.crt rui.crt.bak
-</span></span><span class="line"><span class="cl">cp rui.key rui.key.bak
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+</span></span><span class="line"><span class="cl">rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>vi 编辑，%d 清空，复制申请好的证书 .pem 到 rui.crt， .key 到 rui.key</p>
-<p><strong>重启服务</strong></p>
+</div><ol start="3">
+<li>列出可用的内核版本包:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yum --disablerepo<span class="o">=</span><span class="s2">&#34;*&#34;</span> --enablerepo<span class="o">=</span><span class="s2">&#34;elrepo-kernel&#34;</span> list available
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这可以看到 ELRepo 中提供了哪些更新的内核版本包。</p>
+<ol>
+<li>选择一个需要升级的内核版本并安装（版本解释往下拉）:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yum --enablerepo<span class="o">=</span>elrepo-kernel install kernel-lt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将 lt 替换为你选择的内核版本。这将安装新的内核版本。</p>
+<ol>
+<li>设置 grub 默认使用新的内核版本启动:</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -164,37 +181,104 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/etc/init.d/hostd restart   <span class="c1"># 重启 hostd 服务</span>
-</span></span><span class="line"><span class="cl">/etc/init.d/vpxa restart    <span class="c1"># 重启 vpxa 服务</span>
-</span></span><span class="line"><span class="cl">/etc/init.d/vpxa start      <span class="c1"># 启动 vpxa 服务</span>
-</span></span><span class="line"><span class="cl">/etc/init.d/hostd start     <span class="c1"># 启动 hostd 服务</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">grub2-set-default <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 0 是新内核在 grub 菜单中的序号,可以通下面命令查看序号</span>
+</span></span><span class="line"><span class="cl">awk -F<span class="se">\&#39;</span> <span class="s1">&#39;$1==&#34;menuentry &#34; {print i++ &#34; : &#34; $2}&#39;</span> /boot/grub2/grub.cfg
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="完成">完成</h2>
-<p><strong>登录检查证书</strong></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="../images/post_images/Snipaste_2022-11-22_12-55-45.png"
-        data-srcset="../images/post_images/Snipaste_2022-11-22_12-55-45.png, ../images/post_images/Snipaste_2022-11-22_12-55-45.png 1.5x, ../images/post_images/Snipaste_2022-11-22_12-55-45.png 2x"
-        data-sizes="auto"
-        alt="../images/post_images/Snipaste_2022-11-22_12-55-45.png"
-        title="检查证书" /></p>
-<p><strong>关闭 SSH</strong></p>
-<p>为保证安全，关闭 SSH 登录。</p></div><div class="post-footer" id="post-footer">
+</div><ol>
+<li>重启系统:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 重启生效</span>
+</span></span><span class="line"><span class="cl">reboot
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>内核版本解析</p>
+<p>kernel-lt 在 ELRepo 仓库中的内核包命名中,是“Long Term”的缩写,代表长期支持的内核。
+ELRepo 中提供多种内核包,包括:</p>
+<ul>
+<li>kernel-lt - 长期支持内核</li>
+<li>kernel-ml - 主线(主开发分支)内核</li>
+<li>kernel-nl - 非长期支持的最新内核</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 列出可用的内核包</span>
+</span></span><span class="line"><span class="cl">yum --enablerepo<span class="o">=</span>elrepo-kernel list available
+</span></span><span class="line"><span class="cl">kernel-lt.x86_64                  5.4.255-1.el7.elrepo
+</span></span><span class="line"><span class="cl">kernel-ml.x86_64                  6.1.6-1.el7.elrepo
+</span></span><span class="line"><span class="cl">kernel-ml-devel.x86_64            6.1.6-1.el7.elrepo
+</span></span><span class="line"><span class="cl">kernel-nl.x86_64                  6.1.6-1.el7.elrepo
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>kernel-lt 对应版本是 5.4.255</li>
+<li>kernel-ml 对应版本是 6.1.6</li>
+<li>kernel-nl 对应版本也是 6.1.6</li>
+</ul>
+<h2 id="为什么有的教程让修改-grub-文件">为什么有的教程让修改 grub 文件</h2>
+<p>在 CentOS 7 中配置 GRUB 默认内核的方法有两种:</p>
+<ol>
+<li>修改 /etc/default/grub 文件中的 GRUB_DEFAULT 参数</li>
+<li>使用 grub2-set-default 命令</li>
+</ol>
+<p>对于第一种方法,修改 /etc/default/grub,需要在改完参数后运行: `grub2-mkconfig -o /boot/grub2/grub.cfg``</p>
+<p>这是因为修改了 /etc/default/grub 只是改变了配置文件,还需要用 grub2-mkconfig 来根据配置文件生成实际的引导菜单配置文件 <code>/boot/grub2/grub.cfg</code></p>
+<p>所以一些教程会建议完整的步骤是:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vim /etc/default/grub
+</span></span><span class="line"><span class="cl"><span class="c1"># 修改 GRUB_DEFAULT=0</span>
+</span></span><span class="line"><span class="cl">grub2-mkconfig -o /boot/grub2/grub.cfg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>而第二种方法使用 grub2-set-default 命令,它会直接修改 /boot/grub2/grub.cfg 文件,所以不需要 grub2-mkconfig 步骤。</p>
+<p>这两种方法最终效果都是修改了 grub.cfg 文件中默认的内核入口,以实现设置默认内核的目的。</p>
+<p>但 grub2-set-default 方法更简单直接,不需要手动修改配置并生成 grub.cfg 文件,所以更推荐使用这种方法,可以避免一些手动步骤带来的问题。
+总结一下:</p>
+<ul>
+<li>修改 /etc/default/grub 需要额外 grub2-mkconfig 生成 grub.cfg</li>
+<li>grub2-set-default 直接修改 grub.cfg,更简单直接</li>
+</ul>
+<p>所以如果可以的话,建议使用 grub2-set-default 的方式来设置 GRUB 默认内核，更简单。</p>
+<h2 id="如何离线安装">如何离线安装</h2>
+<ol>
+<li>如果你想自己获取，在完成上面的 repo以及列出可用内核后，可以指定下载离线 rpm 安装包
+yum &ndash;disablerepo=&quot;*&quot; &ndash;enablerepo=&ldquo;elrepo-kernel&rdquo; &ndash;downloadonly &ndash;downloaddir=/path/to/store/rpms install kernel-lt</li>
+</ol></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-09-11</span>
+                <span>Updated on 2023-09-25</span>
             </div><div class="post-info-license">
                 <span><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/4-change-esxi-cert/index.md" target="_blank">Read Markdown</a>
+                            <a class="link-to-markdown" href="/6-upgrade-centos-kernel/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://maple1401.github.io/4-change-esxi-cert/" data-title="ESXi 更换证书"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://maple1401.github.io/4-change-esxi-cert/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://maple1401.github.io/4-change-esxi-cert/" data-title="ESXi 更换证书"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://maple1401.github.io/4-change-esxi-cert/" data-title="ESXi 更换证书"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://maple1401.github.io/4-change-esxi-cert/" data-title="ESXi 更换证书"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://maple1401.github.io/6-upgrade-centos-kernel/" data-title="centos 内核升级"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://maple1401.github.io/6-upgrade-centos-kernel/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://maple1401.github.io/6-upgrade-centos-kernel/" data-title="centos 内核升级"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://maple1401.github.io/6-upgrade-centos-kernel/" data-title="centos 内核升级"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://maple1401.github.io/6-upgrade-centos-kernel/" data-title="centos 内核升级"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -206,8 +290,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/01-linux-proxy/" class="prev" rel="prev" title="Linux 及 Git 代理配置"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Linux 及 Git 代理配置</a>
-            <a href="/5-k8s-nodeport-service/" class="next" rel="next" title="k8s NodePort 端口监听问题">k8s NodePort 端口监听问题<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/5-k8s-nodeport-service/" class="prev" rel="prev" title="k8s NodePort 端口监听问题"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>k8s NodePort 端口监听问题</a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
