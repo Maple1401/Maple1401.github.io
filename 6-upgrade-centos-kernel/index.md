@@ -75,7 +75,6 @@ kernel-nl.x86_64                  6.1.6-1.el7.elrepo
 - kernel-ml 对应版本是 6.1.6
 - kernel-nl 对应版本也是 6.1.6
 
-
 ## 为什么有的教程让修改 grub 文件
 
 在 CentOS 7 中配置 GRUB 默认内核的方法有两种:
