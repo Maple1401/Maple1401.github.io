@@ -4,20 +4,9 @@
         <link>https://maple1401.github.io/</link>
         <description>个人博客，记录生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>myifeng63@gmail.com (Maple)</managingEditor>
-            <webMaster>myifeng63@gmail.com (Maple)</webMaster><lastBuildDate>Sun, 11 Oct 2026 21:50:00 &#43;0800</lastBuildDate>
+            <webMaster>myifeng63@gmail.com (Maple)</webMaster><lastBuildDate>Mon, 25 Sep 2023 11:59:03 &#43;0800</lastBuildDate>
             <atom:link href="https://maple1401.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>聊完之后呢？我对 AI 发展的几点想法</title>
-    <link>https://maple1401.github.io/7-ai-from-chat-to-collaboration/</link>
-    <pubDate>Sun, 11 Oct 2026 21:50:00 &#43;0800</pubDate>
-    <author>Maple</author>
-    <guid>https://maple1401.github.io/7-ai-from-chat-to-collaboration/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/ai-collaboration.png" referrerpolicy="no-referrer">
-            </div><p>最近，我想试着让 AI 接手一件很具体的事：在我的博客里写一篇文章，并发布出来。</p>
-<p>听起来很小。但从“给我一些建议”，到“你来写，我看看效果”，中间其实跨过了一条线。它让我重新想了想：AI 接下来应该往哪里走？对普通使用者来说，什么变化才算真正有用？</p>]]></description>
-</item>
-<item>
     <title>centos 内核升级</title>
     <link>https://maple1401.github.io/6-upgrade-centos-kernel/</link>
     <pubDate>Mon, 25 Sep 2023 11:59:03 &#43;0800</pubDate>
